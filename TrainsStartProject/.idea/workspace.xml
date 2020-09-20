@@ -80,6 +80,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TrainsTest.checkMoveRowOfWagons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TrainsSolution" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TrainsTest" />
+      <option name="METHOD_NAME" value="checkMoveRowOfWagons" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TrainsTest.checkPositionOfWagons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TrainsSolution" />
       <option name="PACKAGE_NAME" value="" />
@@ -140,6 +150,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TrainsTest" />
+        <item itemvalue="JUnit.TrainsTest.checkMoveRowOfWagons" />
         <item itemvalue="JUnit.TrainsTest.checkPositionOfWagons" />
         <item itemvalue="JUnit.TrainsTest.asjdsa" />
         <item itemvalue="Application.TrainLauncher" />
@@ -162,7 +173,12 @@
       <workItem from="1565777385101" duration="15030000" />
       <workItem from="1567152443034" duration="38000" />
       <workItem from="1567152568591" duration="680000" />
-      <workItem from="1578393887177" duration="12059000" />
+      <workItem from="1578393887177" duration="13636000" />
+      <workItem from="1579509153162" duration="599000" />
+      <workItem from="1579514977179" duration="189000" />
+      <workItem from="1580720853238" duration="661000" />
+      <workItem from="1580726463086" duration="116000" />
+      <workItem from="1600633300323" duration="223000" />
     </task>
     <servers />
   </component>

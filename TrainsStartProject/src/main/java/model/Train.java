@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
@@ -151,7 +152,7 @@ public class Train implements Iterable<Wagon>{
 
     @Override
     public Iterator iterator() {
-        return new CustomIterator<>(this.getFirstWagon());
+        return new CustomIterator(getFirstWagon());
     }
 
     @Override
@@ -167,22 +168,27 @@ public class Train implements Iterable<Wagon>{
     }
 
 
-    class CustomIterator<Wagon> implements Iterator<Wagon> {
+    class CustomIterator implements Iterator<Wagon> {
         Wagon current;
 
         public CustomIterator(Wagon wagon){
+
             current = wagon;
         }
 
         // Checks if the next element exists
         public boolean hasNext() {
-            return current != null;
+            if(current == null) return false;
+            return current.hasNextWagon();
         }
 
         // moves the cursor/iterator to next element
-        public Wagon next() {
-            current = current.getNextWagon();
-            return current;
+        public model.Wagon next() {
+            if(hasNext()){
+                current = this.current.getNextWagon();
+                return current;
+            }
+            throw new NoSuchElementException();
         }
 
         // Used to remove an element. Implement only if needed

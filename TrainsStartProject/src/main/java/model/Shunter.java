@@ -128,24 +128,24 @@ public class Shunter {
          detach Wagon and all successors from train from and hook at the rear of train to
          remember to adjust number of wagons of trains */
         if(isSuitableWagon(to,wagon) && hasPlaceForWagons(to,wagon)) {
-            from.forEach(fromWagon -> {
+            for(Wagon fromWagon: from){
                 if (fromWagon.getWagonId() == wagon.getWagonId()) {
                     detachAllFromTrain(from,wagon);
                     hookWagonOnTrainRear(to,wagon);
                     return true;
                 }
-            });
-            Wagon countWagon = from.getFirstWagon();
-            do{
-                if (countWagon.getWagonId() == wagon.getWagonId()) {
-                    detachAllFromTrain(from,wagon);
-                    hookWagonOnTrainRear(to,wagon);
-                    return true;
-                }else{
-                    countWagon = countWagon.getNextWagon();
-                }
             }
-            while (countWagon.hasNextWagon());
+//            Wagon countWagon = from.getFirstWagon();
+//            do{
+//                if (countWagon.getWagonId() == wagon.getWagonId()) {
+//                    detachAllFromTrain(from,wagon);
+//                    hookWagonOnTrainRear(to,wagon);
+//                    return true;
+//                }else{
+//                    countWagon = countWagon.getNextWagon();
+//                }
+//            }
+//            while (countWagon.hasNextWagon());
         }
         return false;
 
@@ -155,19 +155,17 @@ public class Shunter {
         // detach only one wagon from train from and hook on rear of train to
         // do necessary checks and adjustments to trains and wagon
         if(isSuitableWagon(to,wagon) && hasPlaceForWagons(to,wagon)) {
-            Wagon countWagon = from.getFirstWagon();
-            do{
-                if (countWagon.getWagonId() == wagon.getWagonId()) {
+            for (Wagon wagonFrom : from) {
+                if (wagonFrom.getWagonId() == wagon.getWagonId()) {
                     detachOneWagon(from,wagon);
                     wagon.setNextWagon(null);
                     wagon.setPreviousWagon(null);
                     hookWagonOnTrainRear(to,wagon);
                     return true;
                 }else{
-                    countWagon = countWagon.getNextWagon();
+                    wagonFrom = wagonFrom.getNextWagon();
                 }
             }
-            while (countWagon.hasNextWagon());
         }
         return false;
     }
